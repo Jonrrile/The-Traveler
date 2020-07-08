@@ -1,21 +1,21 @@
-let destinations = [
-    {
-        name: "Michigan",
-        description: "Ann Arbor (Go Blue!)",
-        cost: 350
+const API = {
 
+    getAllDestinations() {
+        return fetch("http://localhost:3000/destinations")
+            .then(response => response.json())
     },
 
-    {
-        name: "Texas",
-        description: "The Lone Star State",
-        cost: 200
-    },
-    {
-        name: "Tennessee",
-        description: "The only ten I see",
-        cost: "Free"
-    }
-]
+    //save and send new articles to json
+    saveDestinationEntry: (newEntryObject) => {
+        return fetch("http://localhost:3000/destinations", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newEntryObject)
+        }).then(response => response.json());
 
-export default destinations;
+    }}
+
+
+export default API;

@@ -1,17 +1,6 @@
 import makeTravelerHTML from "./travelerDom.js"
-import destinations from "./data.js"
 import travelerFactory from "./travelerFactory.js"
+import API from "./data.js"
+import makeDestinationList from "./TravelerList.js"
 
-let newDestination = travelerFactory("Canada", "Never been", 1000);
-console.log(newDestination)
-destinations.push(newDestination);
-
-for (const destination of destinations) {
-
-    const destinationHTML = makeTravelerHTML(destination)
-
-    const travelerContainer = document.querySelector(".travelerContainer");
-
-    travelerContainer.innerHTML += destinationHTML
-    
-}
+API.getAllDestinations().then((response) => makeDestinationList(response));

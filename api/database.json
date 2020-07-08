@@ -1,0 +1,10 @@
+{
+    "destinations": [
+    {
+        "name": "Michigan",
+        "description": "Ann Arbor (Go Blue!)",
+        "cost": 350,
+        "id": 1 
+    }
+]
+}
